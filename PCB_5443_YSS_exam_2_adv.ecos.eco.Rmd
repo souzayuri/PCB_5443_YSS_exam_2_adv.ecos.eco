@@ -23,44 +23,31 @@ output:
 ## **Part III: Interpret the results of your data (in 1-2 paragraphs) using descriptions of the model output (qualitative and quantitative) and characteristics of pulse dynamics described in Jentsch and White (2019) (40 points).
 ### **A:** 
 
-- Explaing the experiment
+- The data used in this exploratory analysis was collected over a period of ten years as a part of an exclusion experiment conducted from 2009 to 2018. The experiment involved 46 paired plots, i.e., closed and open, each measuring 5x3 meters. These plots were located across four protected areas in the Atlantic Forest in São Paulo, Brazil. The samples were collected twice a year - one in January and one in June - to capture the variations between the wet and dry seasons. The data pertains to the abundance of plant saplings.
 
-- Interestingly, closed plots experienced an abundance boom while open plots kept almost constant. Although my predictions was that this exercise would target the peaks, it seems that the results is quite on the opposite, showing the valies insteads. Both treatments had the same peak patterns and within the same year period (with the exception of 2014, present only in closed plots while 2015 was absent). I hypothesize that maybe the data structure is not suitable enough for this method to capture the peaks precisely, as there were only 10 years of data sample comprising 2 measurements per year.
+- I have used the "Peak pulse" time series model to identify peaks of plant abundance data in two types of plots: closed (fenced to medium and large herbivores) and open (open to any sort of organism). My hypothesis was that the absence of herbivores would affect the dynamics of plant abundance, with the prediction that abundance would increase in closed plots due to the lack of their predator. For both treatments a threshold of **5** was selected since it seemed to capture and represent better the present peaks. To make this decision, I tested all the values ranging from 1 to 45 (the maximum each model would accept to predict peaks).  Values ranging from 1 to 8 showed 4 peaks, while all the other values would show 3. 
 
-- All the patterns shown here goes in the opposite direction of my prediction that plant abundance would increase in closed plots, as shown by previous studies in the same experiment (XXX and XXX). Moreover, graph A show a clear increase in the abundance right after the beginning of the experiment, with both lines starting almost at the same intercept. Although the first years did not show a large variation, visually, peaks and valleys are present after 2014, more than was captures by the model. 
+- According to the models, both treatments had the same number of peaks - four in total - which occurred in the same three years. Overall, the peaks for closed (*Peaks per year: 0.4, average peak magnitude: 1981.75, peak standard deviation: 95.17, peak CV: 0.04*) plot highlight a increase in plant abundance when compared to the open plot (*Peaks per year: 0.4, average peak magnitude: 1290, peak standard deviation: 76.75, peak CV: 0.05* - Figure 1 C and D). However, when we examined the periodicity of peak abundance events over time, we found that they were not statistically significant for either of the treatments (Open: Slope: -0.64, *P-value* = 0.35 - Figure 1 B and C; Closed: Slope: -0.10, *P-value: 0.89* - Figure 1 D and E). Even though the models were not significant, open plots show a decrease in plant abundance after pulse rate events, given the slightly decreased trend of the pulse magnitude (Figure 1C), while in the closed plots, it is constant (figure 1E).
 
-- Further amaryllises should incorporate the valley *quantmod* method as well as the rate of plant mortality and recruitment. Moreover, exploring the time series at the site level might be more suitable as each location has a large variability on plant dynamic.
+- Both treatments had the same peak patterns within the same year period, with the exception of 2014, which was present only in closed plots, while 2015 was absent. The data structure may not be suitable enough for this method to capture the peaks precisely, given that there were only 10 years of data samples comprising only 2 measurements per year.
+
+- All of the patterns presented here contradict my initial prediction that plant abundance would increase in closed plots exponentially toward a trend of a lower pulse rate and recovery in the last years, which is supported by previous studies conducted within the same experiment (Villar et al., 2019; Souza et al., 2022). Both treatments had an initial pulse rate followed by a recovery period. Visually, closed plots had an increment in the plant's abundance after the start of the experiment, with both lines beginning at almost the same point (Figure 1A). Although the first few years did not exhibit significant variation, there are visible peaks and valleys after 2014 that were not fully captured by the model. Therefore, for future analysis, it is recommended to include the valley *quantmod* method, along with the rate of plant mortality and recruitment. Additionally, exploring the time series at the site level might be more appropriate as each location exhibits a significant variability in plant dynamics.
 
 
-Open (Peaks per year: 0.4, average peak magnitude: 1290, peak standard deviation: 76.75, peak CV: 0.05)
-model 1: Slope: 0.14, *P-value* = 0.15 - Did time affected the occurance of peaks? No
-model 2: Slope: -0.64, *P-value* = 0.35 - Has the magnitude of peaks increased/decreased over time?? No
-
-Closed (Peaks per year: 0.4, average peak magnitude: 1981.75, peak standard deviation: 95.17, peak CV: 0.04)
-model 1: Slope: 0.56, *P-value* = 0.08 - Did time affected the occurance of peaks? Almost
-model 2: Slope: -0.10, *P-value: 0.89* - Has the magnitude of peaks increased/decreased over time?? No
 
 \pagebreak
 
 ![](D:/Google Drive/Yuri/PhD/00_UM/03_graduate/00_courses/04_4th_semester/FIU_Course/PCB_5443_2024/PCB_5443_YSS_exam_2_adv.ecos.eco/02_figures/20240313_YSS_biota_abnd.png)
+**Figure 1.** Graph A displays the plant abundance over time for both open (circles) and closed treatments (triangles). Graphs B and D showcase the effect of time on peak occurrence, while C and E represent the trend in magnitudes.
 
 \pagebreak
 
 ## **Literature**
 
-### Bruce, D. G., Cornwell, J. C., Harris, L., Ihde, T. F., Lisa, M., Kellogg, S. K., ... & Vogt, B. (2021). A synopsis of research on the ecosystem services provided by Large-scale oyster restoration in the Chesapeake bay. NOAA Tech. Memo. NMFS-OHC, 8, 52. 
+### Villar, N., Siqueira, T., Zipparro, V., Farah, F., Schmaedecke, G., Hortenci, L., ... & Galetti, M. (2020). The cryptic regulation of diversity by functionally complementary large tropical forest herbivores. Journal of Ecology, 108(1), 279-290. 
 
-### Cottingham, K. L., Ewing, H. A., Greer, M. L., Carey, C. C., & Weathers, K. C. (2015). Cyanobacteria as biological drivers of lake nitrogen and phosphorus cycling. Ecosphere, 6(1), 1-19.
+### Souza, Y., Villar, N., Zipparro, V., Nazareth, S., & Galetti, M. (2022). Large mammalian herbivores modulate plant growth form diversity in a tropical rainforest. Journal of Ecology, 110(4), 845-859.
 
-### Elser, J. J., Bracken, M. E., Cleland, E. E., Gruner, D. S., Harpole, W. S., Hillebrand, H., ... & Smith, J. E. (2007). Global analysis of nitrogen and phosphorus limitation of primary producers in freshwater, marine and terrestrial ecosystems. Ecology letters, 10(12), 1135-1142.
-
-### Humphries, A. T., Ayvazian, S. G., Carey, J. C., Hancock, B. T., Grabbert, S., Cobb, D., ... & Fulweiler, R. W. (2016). Directly measured denitrification reveals oyster aquaculture and restored oyster reefs remove nitrogen at comparable high rates. Frontiers in Marine Science, 3, 74.
-
-### Keisman, J., Devereux, O. H., LaMotte, A. E., Sekellick, A., & Blomquist, J. (2018, December). Manure and fertilizer inputs to land in the Chesapeake Bay watershed, 1950-2012. In AGU Fall Meeting Abstracts (Vol. 2018, pp. H13K-1892).
-
-### Redfield, A. C. (1958). The biological control of chemical factors in the environment. American scientist, 46(3), 230A-221.
-
-### Weathers, K. C., Strayer, D. L., & Likens, G. E. (Eds.). (2021). Fundamentals of ecosystem science. Academic Press.
 
 \pagebreak
 
